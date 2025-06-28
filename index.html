@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Générateur de QR Code</title>
+  <title>QR Gen open</title>
   <style>
     /* Reset élémentaire */
     * {
@@ -57,36 +57,17 @@
       margin-bottom: 2rem;
     }
 
-    .framalibre-notice {
-      display: flex;
-      align-items: center;
-      border: 1px solid #ddd;
-      padding: 1rem;
-      border-radius: 4px;
-    }
-
-    .framalibre-notice img {
-      max-width: 80px;
-      margin-right: 1rem;
-    }
-
-    .framalibre-notice h2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .framalibre-notice .links a {
-      margin-right: 1rem;
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    .framalibre-notice .links a:hover {
-      text-decoration: underline;
+    footer {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 2rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>Générateur de QR Code</h1>
+  <h1>QR Gen open</h1>
 
   <form id="qr-form">
     <label for="text">Texte ou URL :</label>
@@ -103,24 +84,9 @@
 
   <div id="qrcode"></div>
 
-  <!-- Notice LibreQR -->
-  <article class="framalibre-notice">
-    <div>
-      <img src="https://framalibre.org/images/logo/LibreQR.png" alt="Logo LibreQR">
-    </div>
-    <div>
-      <h2>LibreQR</h2>
-      <p>Générateur de codes QR sur le Web.</p>
-      <div class="links">
-        <a href="https://framalibre.org/notices/libreqr.html" target="_blank">
-          Vers la notice Framalibre
-        </a>
-        <a href="https://code.antopie.org/miraty/libreqr" target="_blank">
-          Vers le site
-        </a>
-      </div>
-    </div>
-  </article>
+  <footer>
+    <p>Créé par Loic – Contact : <a href="mailto:loicnikiema71@gmail.com">loicnikiema71@gmail.com</a></p>
+  </footer>
 
   <!-- Librairie QRCode.js -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
