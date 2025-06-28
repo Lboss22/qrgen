@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Gen open</title>
+  <style>
+    /* Reset élémentaire */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    form label {
+      font-weight: bold;
+    }
+
+    form input,
+    form button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: #0066cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #005bb5;
+    }
+
+    #qrcode {
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 2rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>QR Gen open</h1>
+
+  <form id="qr-form">
+    <label for="text">Texte ou URL :</label>
+    <input type="text" id="text" placeholder="https://exemple.com" required/>
+
+    <label for="size">Taille (px) :</label>
+    <input type="number" id="size" value="200" min="100" max="1000"/>
+
+    <label for="color">Couleur (hex) :</label>
+    <input type="color" id="color" value="#000000"/>
+
+    <button type="submit">Générer</button>
+  </form>
+
+  <div id="qrcode"></div>
+
+  <footer>
+    <p>Créé par Loic – Contact : <a href="mailto:loicnikiema71@gmail.com">loicnikiema71@gmail.com</a></p>
+  </footer>
+
+  <!-- Librairie QRCode.js -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script>
+    document.getElementById('qr-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const text  = document.getElementById('text').value.trim();
+      const size  = parseInt(document.getElementById('size').value, 10);
+      const color = document.getElementById('color').value;
+
+      const container = document.getElementById('qrcode');
+      container.innerHTML = '';  // Vide l'ancien QR
+
+      new QRCode(container, {
+        text: text,
+        width: size,
+        height: size,
+        colorDark: color,
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    });
+  </script>
+</body>
+</html>
